@@ -1,0 +1,43 @@
+module.exports = {
+  flags: {
+
+  },
+  plugins: [
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          'styles': 'src/styles',
+          'pages': 'src/pages',
+          'types': 'src/types',
+          'components': 'src/components',
+          'lib': 'src/lib',
+        },
+        extensions: []
+      }
+    },
+    "gatsby-plugin-styled-components",
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "UA-12111111111111-1",
+      },
+    },
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/icon.png",
+      },
+    },
+  ],
+};
