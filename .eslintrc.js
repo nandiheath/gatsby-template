@@ -2,8 +2,8 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: true,
   },
-  plugins: ['@typescript-eslint', 'react'],
-  extends: ['react-app', 'airbnb', 'prettier'],
+  plugins: ['@typescript-eslint', 'react', 'prettier'],
+  extends: ['react-app', 'airbnb', 'plugin:prettier/recommended', 'prettier/react'],
   parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   rules: {
     'react/jsx-filename-extension': [0, { extensions: ['.js', '.jsx'] }],

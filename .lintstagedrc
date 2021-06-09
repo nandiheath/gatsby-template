@@ -1,5 +1,5 @@
 {
-  "src/**/*.{js,jsx}": [
+  "src/**/*.{js,jsx,ts,tsx}": [
     "prettier --write",
     "yarn run lint"
   ]

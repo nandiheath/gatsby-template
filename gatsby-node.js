@@ -8,12 +8,12 @@ const fs = require('fs');
 // Load the .env file if exists
 dotenv.config();
 
-exports.sourceNodes = async ({ actions, cache }) => {
+exports.sourceNodes = async ({ actions, cache, reporter }) => {
   const { createNode } = actions;
 
   const localeSpreadsheetUrl = process.env.LOCALE_GSPREADSHEET_PUBLISHED_URL;
   if (!localeSpreadsheetUrl) {
-    throw new Error('LOCALE_GSPREADSHEET_PUBLISHED_URL must be set up before starting the build.');
+    reporter.panicOnBuild('LOCALE_GSPREADSHEET_PUBLISHED_URL must be set up before starting the build.');
   }
   const res = await fetch(`${localeSpreadsheetUrl}`);
   const data = await res.text();

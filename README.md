@@ -1,54 +1,26 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Gatsby Template
+This is an opinionated Gatsby template using Google Spreadsheet as a CMS. 
 
-## 🚀 Quick start
+## Stack
+- Material UI
+- Styled Component
+- TailwindCSS
+- Google Spreadsheet
+- CI/CD with Github Actions
+- Deploy on Github Pages
 
-1.  **Create a Gatsby site.**
+## Get started
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+```shell
+# prepare environment
+cp .env.sample .env
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+# Install dependencies and start
+yarn && yarn start
+```
 
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
-
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
-
-3.  **Open the code and start customizing!**
-
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.tsx` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+### Use your own Google Spreadsheet
+1. Copy this [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1pWhu5uB4QnzWf899OUnethUJFsWdaDn-P_3-DOZomKw/edit?usp=sharing)
+2. Click `File` > `Publish to the Web`
+3. Select `Entire Document` and `Comman-separated values(.csv)`
+4. Replace the value `LOCALE_GSPREADSHEET_PUBLISHED_URL` at `.env` with the link 
