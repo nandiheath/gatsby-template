@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
-  children: React.ReactChildren,
-  locale: string,
-  ssr: boolean,
+  children: React.ReactChildren;
+  locale: string;
+  ssr: boolean;
 }
 
 export default (props: Props) => {

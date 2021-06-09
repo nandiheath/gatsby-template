@@ -13,7 +13,9 @@ exports.sourceNodes = async ({ actions, cache, reporter }) => {
 
   const localeSpreadsheetUrl = process.env.LOCALE_GSPREADSHEET_PUBLISHED_URL;
   if (!localeSpreadsheetUrl) {
-    reporter.panicOnBuild('LOCALE_GSPREADSHEET_PUBLISHED_URL must be set up before starting the build.');
+    reporter.panicOnBuild(
+      'LOCALE_GSPREADSHEET_PUBLISHED_URL must be set up before starting the build.'
+    );
   }
   const res = await fetch(`${localeSpreadsheetUrl}`);
   const data = await res.text();
@@ -21,12 +23,12 @@ exports.sourceNodes = async ({ actions, cache, reporter }) => {
 
   const languages = Object.keys(_.omit(records[0], 'key'));
   const translations = {};
-  languages.forEach(lang => {
+  languages.forEach((lang) => {
     translations[lang] = {};
   });
 
   records.forEach((r) => {
-    languages.forEach(lang => {
+    languages.forEach((lang) => {
       translations[lang][r.key] = r[lang];
     });
   });
@@ -39,7 +41,10 @@ exports.sourceNodes = async ({ actions, cache, reporter }) => {
     children: [],
     internal: {
       type: 'Config',
-      contentDigest: crypto.createHash('md5').update(JSON.stringify(translations)).digest('hex'),
+      contentDigest: crypto
+        .createHash('md5')
+        .update(JSON.stringify(translations))
+        .digest('hex'),
     },
   });
 
@@ -50,28 +55,29 @@ exports.sourceNodes = async ({ actions, cache, reporter }) => {
     children: [],
     internal: {
       type: 'Translation',
-      contentDigest: crypto.createHash('md5').update(JSON.stringify(translations)).digest('hex'),
+      contentDigest: crypto
+        .createHash('md5')
+        .update(JSON.stringify(translations))
+        .digest('hex'),
     },
   });
 
-  languages.forEach(lang => {
+  languages.forEach((lang) => {
     fs.mkdirSync(`locales/${lang}`, { recursive: true });
     fs.writeFileSync(
       `locales/${lang}/translation.json`,
-      JSON.stringify(translations[lang]),
+      JSON.stringify(translations[lang])
     );
   });
 
   // do all my sourceNode-y stuff.
-  await cache.set("languages", languages)
-
+  await cache.set('languages', languages);
 };
 
-
 exports.onCreatePage = async ({ cache, page, actions }) => {
-  const languages = await cache.get("languages");
+  const languages = await cache.get('languages');
   const { createPage, createRedirect, deletePage } = actions;
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     //
     deletePage(page);
 

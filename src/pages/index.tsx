@@ -7,9 +7,7 @@ const IndexPage = () => {
   const { t } = useTranslation();
   return (
     <main>
-      <Layout>
-        {t('title')}
-      </Layout>
+      <Layout>{t('title')}</Layout>
     </main>
   );
 };

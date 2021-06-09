@@ -1,7 +1,10 @@
-module.exports = {
-  flags: {
+require('dotenv').config();
 
+module.exports = {
+  siteMetadata: {
+    siteUrl: process.env.SITE_URL,
   },
+  flags: {},
   plugins: [
     {
       resolve: `gatsby-plugin-material-ui`,
@@ -15,28 +18,28 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          'styles': 'src/styles',
-          'pages': 'src/pages',
-          'types': 'src/types',
-          'components': 'src/components',
-          'lib': 'src/lib',
+          styles: 'src/styles',
+          pages: 'src/pages',
+          types: 'src/types',
+          components: 'src/components',
+          lib: 'src/lib',
         },
-        extensions: []
-      }
-    },
-    "gatsby-plugin-styled-components",
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "UA-12111111111111-1",
+        extensions: [],
       },
     },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    'gatsby-plugin-styled-components',
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        icon: "src/images/icon.png",
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/icon.png',
       },
     },
   ],

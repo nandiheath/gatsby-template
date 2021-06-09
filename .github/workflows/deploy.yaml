@@ -26,6 +26,9 @@ jobs:
       env:
         # Put your environment variables here
         NODE_ENV: production
+        LOCALE_GSPREADSHEET_PUBLISHED_URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRY0w0FlbZiubTEwsQzEszdw0tkuD0FbQTE4nAqDlmtdUJHVIHGYUt56mo7I6zt7F41dUv2XnXORMvA/pub?gid=0&single=true&output=csv
+        GOOGLE_ANALYTICS_ID: UA-1111111-1
+        SITE_URL: http://localhost:8000
     # This is the default configuration that would deploy to gh_pages 
     # Check the configuration here https://github.com/peaceiris/actions-gh-pages
     - name: Deploy to Github Page
@@ -42,4 +45,4 @@ jobs:
         # 
         # If you want to host with your custom domain 
         # cname: [YOUR_DOMAIN]
-   
+

@@ -7,28 +7,26 @@ import translationZH from '../../locales/zh/translation.json';
  * Since react-i18n tries to bundle the resources to the build
  * It might not be that straight forward to dynamically add the resources from fs.
  */
-i18n
-  .use(initReactI18next)
-  .init({
-    lng: 'zh',
-    fallbackLng: 'zh',
-    debug: false,
-    interpolation: {
-      escapeValue: false,
-    },
+i18n.use(initReactI18next).init({
+  lng: 'zh',
+  fallbackLng: 'zh',
+  debug: false,
+  interpolation: {
+    escapeValue: false,
+  },
 
-    resources: {
-      en: {
-        translation: translationEN,
-      },
-      zh: {
-        translation: translationZH,
-      },
+  resources: {
+    en: {
+      translation: translationEN,
     },
-    react: {
-      wait: true,
+    zh: {
+      translation: translationZH,
     },
-    keySeparator: '-',
-  });
+  },
+  react: {
+    wait: true,
+  },
+  keySeparator: '-',
+});
 
 export default i18n;

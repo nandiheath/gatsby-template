@@ -20,8 +20,8 @@ const palette: PaletteOptions = {
   },
   divider: 'rgba(0, 0, 0, 0.12)',
   background: {
-    paper: '#f0f0f0'
-  }
+    paper: '#f0f0f0',
+  },
 };
 
 export const typography = {
