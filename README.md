@@ -19,7 +19,7 @@ cp .env.sample .env
 yarn && yarn start
 ```
 
-### Use your own Google Spreadsheet
+### Using your own Google Spreadsheet
 1. Copy this [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1pWhu5uB4QnzWf899OUnethUJFsWdaDn-P_3-DOZomKw/edit?usp=sharing)
 2. Click `File` > `Publish to the Web`
 3. Select `Entire Document` and `Comman-separated values(.csv)`

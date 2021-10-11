@@ -63,7 +63,7 @@ function SEO({ description, meta, title }: SEOProps) {
     <Helmet
       htmlAttributes={{}}
       title={title}
-      titleTemplate="%s | Title"
+      titleTemplate="%s"
       meta={defaultMeta.concat(meta || [])}
     />
   );

@@ -17,3 +17,5 @@ stories
 
 loaderShim.js
 jest-preprocess.js
+
+.eslintrc.js

@@ -14,7 +14,7 @@ exports.sourceNodes = async ({ actions, cache, reporter }) => {
   const localeSpreadsheetUrl = process.env.LOCALE_GSPREADSHEET_PUBLISHED_URL;
   if (!localeSpreadsheetUrl) {
     reporter.panicOnBuild(
-      'LOCALE_GSPREADSHEET_PUBLISHED_URL must be set up before starting the build.'
+      'LOCALE_GSPREADSHEET_PUBLISHED_URL must be set up before starting the build.',
     );
   }
   const res = await fetch(`${localeSpreadsheetUrl}`);
@@ -66,7 +66,7 @@ exports.sourceNodes = async ({ actions, cache, reporter }) => {
     fs.mkdirSync(`locales/${lang}`, { recursive: true });
     fs.writeFileSync(
       `locales/${lang}/translation.json`,
-      JSON.stringify(translations[lang])
+      JSON.stringify(translations[lang]),
     );
   });
 
