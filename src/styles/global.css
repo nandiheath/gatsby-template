@@ -20,3 +20,27 @@ a:hover {
 a {
     color: #673ab7
 }
+
+:not(pre) > code[class*="language-"] {
+    background: #e0e0e0 !important;
+    border-radius: 2px !important;
+    color: #5a5a5a;
+    padding: .1em .3em !important;
+    margin: .1em .3em !important;
+    font-family: monospace, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono';
+}
+
+p {
+    margin-block-start: 2em;
+    margin-block-end: 2em;
+}
+
+h2 {
+    margin-block-start: 2em;
+    margin-block-end: 2em;
+}
+
+img {
+    max-width: 100%;
+}
+

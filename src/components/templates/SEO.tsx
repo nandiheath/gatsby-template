@@ -7,23 +7,34 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { PageProps } from 'gatsby';
-import { useTranslation } from 'react-i18next';
+import { useStaticQuery, graphql } from 'gatsby';
 
 type MetaProps = {
   [key: string]: string;
 };
 
-interface SEOProps extends PageProps {
-  description: string;
-  meta: MetaProps[];
-  title: string;
+interface SEOProps {
+  description?: string;
+  meta?: MetaProps[];
+  title?: string;
 }
 
-function SEO({ description, meta, title }: SEOProps) {
-  const metaDescription = description;
-  const { t } = useTranslation();
+function SEO({ description = '', meta = [], title = '' }: SEOProps) {
+  const { site } = useStaticQuery(
+    graphql`
+        query {
+            site {
+                siteMetadata {
+                    title
+                    description
+                    author
+                }
+            }
+        }
+    `,
+  );
 
+  const metaDescription = description;
   const defaultMeta: MetaProps[] = [
     {
       name: `description`,
@@ -47,7 +58,7 @@ function SEO({ description, meta, title }: SEOProps) {
     },
     {
       name: `twitter:creator`,
-      content: t('author'),
+      content: site.siteMetadata.author,
     },
     {
       name: `twitter:title`,

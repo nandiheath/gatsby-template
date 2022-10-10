@@ -1,13 +1,11 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
+import { createTheme } from '@mui/material';
 import createPalette, {
   PaletteOptions,
-} from '@material-ui/core/styles/createPalette';
+} from '@mui/material/styles/createPalette';
 
-export const bps = createBreakpoints({});
 
-export const headingFontFamily = 'Noto Mono';
-export const bodyFontFamily = 'Noto Mono';
+export const headingFontFamily = 'Noto Sans Mono';
+export const bodyFontFamily = 'Noto Sans Mono';
 
 const palette: PaletteOptions = {
   primary: {
@@ -20,8 +18,9 @@ const palette: PaletteOptions = {
   },
   divider: 'rgba(0, 0, 0, 0.12)',
   background: {
-    paper: '#f0f0f0',
-  },
+    default: '#fff',
+    paper: '#f0f0f0'
+  }
 };
 
 export const typography = {
@@ -98,7 +97,7 @@ export const typography = {
   },
 };
 
-export const mainTheme = createMuiTheme({
+export const mainTheme = createTheme({
   typography,
   palette: createPalette(palette),
 });

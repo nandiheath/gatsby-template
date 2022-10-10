@@ -1,13 +1,14 @@
-# Gatsby Template
-This is an opinionated Gatsby template using Google Spreadsheet as a CMS. 
+# Gatsby Exemplar
+A simple blog that built on Gatsby with typescript. 
+Aim to provide an easy way to start a web project which has everything automatic and 100% free! 
 
 ## Stack
-- Material UI
-- Styled Component
-- TailwindCSS
-- Google Spreadsheet
-- CI/CD with Github Actions
-- Deploy on Github Pages
+- [Material UI](https://mui.com/material-ui/getting-started/overview/) - UI component framework for React
+- [Emotion](https://emotion.sh/docs/introduction) - For writing inline CSS style with Javascript 
+- [TailwindCSS](https://tailwindcss.com/) - Provide utilities for CSS classes
+- Eslint/Prettier - Linting and opinionated formatting
+- Github Actions - CI/CD pipelines
+- Github Pages - Free hosting
 
 ## Get started
 
@@ -16,11 +17,29 @@ This is an opinionated Gatsby template using Google Spreadsheet as a CMS.
 cp .env.sample .env
 
 # Install dependencies and start
-yarn && yarn start
+yarn && yarn develop
 ```
 
-### Using your own Google Spreadsheet
-1. Copy this [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1pWhu5uB4QnzWf899OUnethUJFsWdaDn-P_3-DOZomKw/edit?usp=sharing)
-2. Click `File` > `Publish to the Web`
-3. Select `Entire Document` and `Comman-separated values(.csv)`
-4. Replace the value `LOCALE_GSPREADSHEET_PUBLISHED_URL` at `.env` with the link 
+## Deploying with Custom Domain
+
+Update the configuration in `.github/workflows/deploy.yaml`
+
+```yaml
+  steps:
+  - name: 🚜 Building
+    run: yarn build
+    env:
+      # Update this to your host name
+      SITE_URL: https://web.myhost.com
+  - name: 🚢 Deploying to Github Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        # uncomment `cname` and change this to your host name
+        cname: web.myhost.com
+```
+
+Configure your DNS service following [the guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain),
+which most of the case will be configuring a `CNAME` record pointing to `<user>.github.io`
+
+Once the changes are committed to the `main` branch this will automatically trigger Github Actions to build and release to Github Pages,
+and you can navigate to your host name e.g. `https://web.myhost.com` to browse your web! 

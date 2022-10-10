@@ -1,17 +1,15 @@
 import React from 'react';
-import { ThemeProvider as MUIThemeProvider } from '@material-ui/core/styles';
-import { ThemeProvider } from 'styled-components';
 
 import { mainTheme } from 'styles/theme';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 
 interface Props {
   element: any;
 }
 
 export const wrapRootElement = ({ element }: Props) => (
-  <MUIThemeProvider theme={mainTheme}>
+  <ThemeProvider theme={mainTheme}>
     <CssBaseline />
-    <ThemeProvider theme={mainTheme}>{element}</ThemeProvider>
-  </MUIThemeProvider>
+    {element}
+  </ThemeProvider>
 );
